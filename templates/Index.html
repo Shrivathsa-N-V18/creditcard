@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Credit Card Fraud Detection</title>
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    </head>
+    <body>
+        <div style="color:white" class="container">
+            <form action="{{url_for('predict')}}" method="post">
+                <h2>Credit Card Fraud Detection</h2>
+                <label for="first">Average Amount Transaction Per Day in $:</label>
+                <input id ="first" name="AATD" required="required"><br><br>
+                <label for="second">Transaction Amount in $ </label>
+                <input id ="second" name="Transaction_Amount" required="required"><br><br>
+
+                <label for="">Number of Declines :</label>
+                <input id ="fourth" name="Decline_Count" type="number" required='required'><br><br>
+                <label for="Daily_Charge_Back_Amount">Daily Charge Back Amount in $ </label>
+                <input id ="second" name="Daily_Charge_Back_Amount" required="required"><br><br>
+                <label for="Six_Daily_Charge_Back_Amount">Six Month Charge Back Amount in $ </label>
+                <input id ="second" name="Six_Daily_Charge_Back_Amount" required="required"><br><br>
+                <label for="Six_Daily_Charge_Back_Amount_Freq">Six Month Charge Back Amount Frequency </label>
+                <input id ="second" name="Six_Daily_Charge_Back_Amount_Freq" required="required" type="number"><br><br>
+                <label for="Average">Average</label>
+                <input id ="second" name="Average" required="required"><br><br>
+                <label for="fifth">Declined : </label>
+                <select name="Declined" id="fifth" required="required">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select><br><br>
+                <label for="ForeignTransaction">Foreign Transaction </label>
+                <select name="ForeignTransaction" id="fifth" required="required">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select><br><br>
+                <label for="RiskCountry">Risk Country </label>
+                <select name="RiskCountry" id="fifth" required="required">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select><br><br>
+                <button id="sub" type="submit">Predict</button> 
+                <button id="res" type="reset">Reset</button>
+            </form>
+             <br><br><h3>{{ prediction_text }}<h3>
+        </div>
+        <style>
+            body {
+    background-image:url("/static/images/card.jpg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+    text-align: center;
+    padding : 0px;
+}
+
+.container {
+        width: 500px;
+        clear: both;
+        padding-left:500px;
+}
+
+.container input {
+        width: 100%;
+        clear: both;
+}
+        </style>
+    </body>
+</html>
